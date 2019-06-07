@@ -6,8 +6,7 @@ import seaborn as sns
 
 from sklearn import datasets
 boston = datasets.load_boston()
-bs = pd.DataFrame(boston.data)
-bs.columns = boston.feature_names
+bs = pd.DataFrame(data=mp.c_[boston.data, boston.target], columns = boston.feature_names + ['target'])
 mean_CRIM = bs["CRIM"].mean()
 
 #Anything more than Mean in CRIM is considered to be high CRIME rate
