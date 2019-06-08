@@ -31,5 +31,19 @@ linear.fit(x_train, y_train)
 prediction = linear.predict(x_test)
 
 score = linear.score(x_test, y_test)
-print(score)
+print(f"Score : {score}")
+
+for (real, predicted) in list(zip(y_test, prediction)):
+    print(f"Value: {real:.2f}, pred: {predicted:.2f}, diff: {(real - predicted):.2f}")
+
+
+
+sns.scatterplot(y_test, prediction)
+plt.xlabel('Real Value')
+plt.ylabel('Predicted Value')
+plt.show()
+
+
+
+
 
